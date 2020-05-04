@@ -13,7 +13,7 @@ mkdir -p $CSV_DIR
 ################ 
 # Download the files into $CSV_DIR
 curl 'https://raw.githubusercontent.com/ALLIANCETECHSYSTEM/CovidWLDdb/master/files/time-series-19-covid-combined_csv.csv' \
-      -o $CSV_DIR/covidwld-combined.csv
+      -o sed -e 's/\///_/g' $CSV_DIR/covidwld-combined.csv > $CSV_DIR/covidwld-combined2.csv
 curl 'https://raw.githubusercontent.com/ALLIANCETECHSYSTEM/CovidWLDdb/master/files/countries-aggregated_csv.csv' \
       -o $CSV_DIR/covidwld-aggregated.csv
 curl 'https://raw.githubusercontent.com/ALLIANCETECHSYSTEM/CovidWLDdb/master/files/worldwide-aggregated_csv.csv' \
@@ -27,7 +27,7 @@ curl 'https://raw.githubusercontent.com/ALLIANCETECHSYSTEM/CovidWLDdb/master/fil
 # Insert the data
 
 ## Insert the tables data
-csvsql $CSV_DIR/covidwld-combined.csv  \
+csvsql $CSV_DIR/covidwld-combined2.csv  \
     --db sqlite:///$DB_PATH --insert --no-create \
     --tables wrldcovid_DHComb    
 csvsql $CSV_DIR/covidwld-aggregated.csv  \
