@@ -17,8 +17,8 @@ rm -f $DB_PATH
 ## Create the wrldcovid_DHGen table
 echo "CREATE TABLE wrldcovid_DHComb (
   Date DATE, 
-  Country VARCHAR,
-  Province VARCHAR,
+  Country/Region VARCHAR,
+  Province/State VARCHAR,
   Lat NUMBER,
   Long NUMBER,
   Confirmed INTEGER,
@@ -41,7 +41,7 @@ echo "CREATE TABLE wrldcovid_DHIncR (
   Confirmed INTEGER,
   Recovered INTEGER,
   Deaths INTEGER,
-  Increase_rate NUMBER
+  Increase rate NUMBER
 );" | sqlite3 $DB_PATH
 
 ## Create the wrldcovid_DHRef table
@@ -55,7 +55,7 @@ echo "CREATE TABLE wrldcovid_DHRef (
   Province_State VARCHAR,
   Country_Region VARCHAR,
   Lat NUMBER,
-  Long NUMBER,
+  Long_ NUMBER,
   Combined_Key VARCHAR,
   Population INTEGER
 );" | sqlite3 $DB_PATH
