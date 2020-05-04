@@ -14,24 +14,56 @@
 # First remove the existing database file, if any
 rm -f $DB_PATH
 
-## Create the wrldcovid_DHRef table
-echo "CREATE TABLE wrldcovid_DHRef (
-  UID INTEGER,
-  iso2 VARCHAR,
-  iso3 VARCHAR,
-  code3 INTEGER,
-  FIPS VARCHAR,
-  Admin2 VARCHAR,
-  Province_State VARCHAR,
-  Country_Region VARCHAR,
-  Lat NUMBER,
-  Long_ NUMBER,
-  Combined_Key VARCHAR,
-  Population INTEGER
+## Create the wrldcovid_all table
+echo "CREATE TABLE wrldcovid_all (
+  Updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+  Cases INTEGER,
+  Todaycases INTEGER,
+  Deaths INTEGER,
+  Todaydeaths INTEGER,
+  Recovered INTEGER,
+  Active INTEGER,
+  Critical INTEGER,
+  Casesperonemillion INTEGER,
+  Deathsperonemillion INTEGER,
+  Tests INTEGER,
+  Testsperonemillion NUMBER,
+  Affectedcountries INTEGER
 );" | sqlite3 $DB_PATH
 
-## Create the wrldcovid_Hist table
-echo "CREATE TABLE wrldcovid_Hist (
+## Create the wrldcovid_counties table
+echo "CREATE TABLE wrldcovid_counties (
+  Updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+  Cases INTEGER,
+  Todaycases INTEGER,
+  Deaths INTEGER,
+  Todaydeaths INTEGER,
+  Recovered INTEGER,
+  Active INTEGER,
+  Critical INTEGER,
+  Continent VARCHAR
+);" | sqlite3 $DB_PATH
+
+## Create the wrldcovid_countries table
+echo "CREATE TABLE wrldcovid_countries (
+  Updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+  Country VARCHAR,
+  Cases INTEGER,
+  Todaycases INTEGER,
+  Deaths INTEGER,
+  Todaydeaths INTEGER,
+  Recovered INTEGER,
+  Active INTEGER,
+  Critical INTEGER,
+  Casesperonemillion INTEGER,
+  Deathsperonemillion INTEGER,
+  Tests INTEGER,
+  Testsperonemillion NUMBER,
+  Continent VARCHAR
+);" | sqlite3 $DB_PATH
+
+## Create the wrldcovid_hist table
+echo "CREATE TABLE wrldcovid_hist (
   Date DATE, 
   Country VARCHAR,
   Province VARCHAR,
@@ -42,12 +74,13 @@ echo "CREATE TABLE wrldcovid_Hist (
 
 ## Create the wrldcovid_br table
 echo "CREATE TABLE wrldcovid_br (
-  Date DATE, 
-  Country VARCHAR,
-  Province VARCHAR,
-  Cases INTEGER,
-  Recovered INTEGER,
-  Deaths INTEGER
+  regiao VARCHAR,
+  estado VARCHAR,
+  data DATE, 
+  casosNovos INTEGER,
+  casosAcumulados INTEGER,
+  obitosNovos INTEGER,
+  obitosAcumulados INTEGER
 );" | sqlite3 $DB_PATH
 
 #####################

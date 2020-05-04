@@ -12,8 +12,12 @@ mkdir -p $CSV_DIR
 
 ################ 
 # Download the files into $CSV_DIR
-curl 'https://raw.githubusercontent.com/ALLIANCETECHSYSTEM/CovidWLDdb/master/files/reference_csv.csv' \
-      -o $CSV_DIR/covidwld-reference.csv
+curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw/export?format=csv&id=140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw&gid=510014428' \
+      -o $CSV_DIR/covidwld-all.csv
+curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw/export?format=csv&id=140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw&gid=1116965246' \
+      -o $CSV_DIR/covidwld-counties.csv
+curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw/export?format=csv&id=140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw&gid=789586754' \
+      -o $CSV_DIR/covidwld-countries.csv
 curl 'https://raw.githubusercontent.com/flavianogjc/covid_web_scraping/master/country_datas.csv' \
       -o $CSV_DIR/covidwld-historical.csv   
 curl 'https://raw.githubusercontent.com/flavianogjc/covid_web_scraping/master/arquivo_geral.csv' \
@@ -23,12 +27,18 @@ curl 'https://raw.githubusercontent.com/flavianogjc/covid_web_scraping/master/ar
 # Insert the data
 
 ## Insert the tables data
-csvsql $CSV_DIR/covidwld-reference.csv  \
+csvsql $CSV_DIR/covidwld-all.csv  \
     --db sqlite:///$DB_PATH --insert --no-create \
-    --tables wrldcovid_DHRef    
+    --tables wrldcovid_all   
+csvsql $CSV_DIR/covidwld-counties.csv  \
+    --db sqlite:///$DB_PATH --insert --no-create \
+    --tables wrldcovid_counties   
+csvsql $CSV_DIR/covidwld-countries.csv  \
+    --db sqlite:///$DB_PATH --insert --no-create \
+    --tables wrldcovid_countries    
 csvsql $CSV_DIR/covidwld-historical.csv  \
     --db sqlite:///$DB_PATH --insert --no-create \
-    --tables wrldcovid_Hist
+    --tables wrldcovid_hist
 csvsql $CSV_DIR/covidwld-brazil.csv  \
     --db sqlite:///$DB_PATH --insert --no-create \
     --tables wrldcovid_br
