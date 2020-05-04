@@ -12,8 +12,6 @@ mkdir -p $CSV_DIR
 
 ################ 
 # Download the files into $CSV_DIR
-curl 'https://datahub.io/core/covid-19/r/time-series-19-covid-combined.csv' \
-      -o $CSV_DIR/covidwld-combined.csv
 curl 'https://datahub.io/core/covid-19/r/countries-aggregated.csv' \
       -o $CSV_DIR/covidwld-aggregated.csv
 curl 'https://datahub.io/core/covid-19/r/worldwide-aggregated.csv' \
@@ -26,10 +24,7 @@ curl 'https://raw.githubusercontent.com/flavianogjc/covid_web_scraping/master/co
 #####################
 # Insert the data
 
-## Insert the tables data
-csvsql $CSV_DIR/covidwld-combined.csv  \
-    --db sqlite:///$DB_PATH --insert --no-create \
-    --tables wrldcovid_DHComb    
+## Insert the tables data  
 csvsql $CSV_DIR/covidwld-aggregated.csv  \
     --db sqlite:///$DB_PATH --insert --no-create \
     --tables wrldcovid_DHAgreg

@@ -14,18 +14,6 @@
 # First remove the existing database file, if any
 rm -f $DB_PATH
 
-## Create the wrldcovid_DHGen table
-echo "CREATE TABLE wrldcovid_DHComb (
-  Date DATE, 
-  Country/Region VARCHAR,
-  Province/State VARCHAR,
-  Lat NUMBER,
-  Long NUMBER,
-  Confirmed INTEGER,
-  Recovered INTEGER,
-  Deaths INTEGER
-);" | sqlite3 $DB_PATH
-
 ## Create the wrldcovid_DHAgreg table
 echo "CREATE TABLE wrldcovid_DHAgreg (
   Date DATE, 
