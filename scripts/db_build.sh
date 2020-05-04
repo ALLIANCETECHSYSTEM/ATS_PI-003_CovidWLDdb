@@ -17,8 +17,8 @@ rm -f $DB_PATH
 ## Create the wrldcovid_DHGen table
 echo "CREATE TABLE wrldcovid_DHComb (
   Date DATE, 
-  Country VARCHAR,
-  Province VARCHAR,
+  Country_Region VARCHAR,
+  Province_State VARCHAR,
   Lat NUMBER,
   Long NUMBER,
   Confirmed INTEGER,
