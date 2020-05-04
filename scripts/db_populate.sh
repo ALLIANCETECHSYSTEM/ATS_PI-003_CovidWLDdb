@@ -16,7 +16,7 @@ curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-
       -o $CSV_DIR/covidwld-all.csv
 curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw/export?format=csv&id=140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw&gid=1116965246' \
       -o $CSV_DIR/covidwld-counties.csv
-curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw/export?format=csv&id=140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw&gid=789586754' \
+curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw/export?format=csv&id=140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw&gid=1287373792' \
       -o $CSV_DIR/covidwld-countries.csv
 curl 'https://raw.githubusercontent.com/flavianogjc/covid_web_scraping/master/country_datas.csv' \
       -o $CSV_DIR/covidwld-historical.csv   

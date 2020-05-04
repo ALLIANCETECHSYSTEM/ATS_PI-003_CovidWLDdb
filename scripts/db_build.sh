@@ -41,7 +41,8 @@ echo "CREATE TABLE wrldcovid_counties (
   Recovered INTEGER,
   Active INTEGER,
   Critical INTEGER,
-  Continent VARCHAR
+  Continent VARCHAR,
+  Countries VARCHAR
 );" | sqlite3 $DB_PATH
 
 ## Create the wrldcovid_countries table
