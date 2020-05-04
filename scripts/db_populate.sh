@@ -12,19 +12,24 @@ mkdir -p $CSV_DIR
 
 ################ 
 # Download the files into $CSV_DIR
-curl 'https://datahub.io/core/covid-19/r/countries-aggregated.csv' \
+curl 'https://raw.githubusercontent.com/ALLIANCETECHSYSTEM/CovidWLDdb/master/files/time-series-19-covid-combined_csv.csv' \
+      -o $CSV_DIR/covidwld-combined.csv
+curl 'https://raw.githubusercontent.com/ALLIANCETECHSYSTEM/CovidWLDdb/master/files/countries-aggregated_csv.csv' \
       -o $CSV_DIR/covidwld-aggregated.csv
-curl 'https://datahub.io/core/covid-19/r/worldwide-aggregated.csv' \
+curl 'https://raw.githubusercontent.com/ALLIANCETECHSYSTEM/CovidWLDdb/master/files/worldwide-aggregated_csv.csv' \
       -o $CSV_DIR/covidwld-incrementrate.csv   
-curl 'https://datahub.io/core/covid-19/r/reference.csv' \
+curl 'https://raw.githubusercontent.com/ALLIANCETECHSYSTEM/CovidWLDdb/master/files/reference_csv.csv' \
       -o $CSV_DIR/covidwld-reference.csv
-curl 'https://raw.githubusercontent.com/flavianogjc/covid_web_scraping/master/country_datas.csv' \
+curl 'https://raw.githubusercontent.com/ALLIANCETECHSYSTEM/CovidWLDdb/master/files/country_datas.csv' \
       -o $CSV_DIR/covidwld-30days.csv 
 
 #####################
 # Insert the data
 
-## Insert the tables data  
+## Insert the tables data
+csvsql $CSV_DIR/covidwld-combined.csv  \
+    --db sqlite:///$DB_PATH --insert --no-create \
+    --tables wrldcovid_DHComb    
 csvsql $CSV_DIR/covidwld-aggregated.csv  \
     --db sqlite:///$DB_PATH --insert --no-create \
     --tables wrldcovid_DHAgreg
