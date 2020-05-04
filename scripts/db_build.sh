@@ -14,36 +14,6 @@
 # First remove the existing database file, if any
 rm -f $DB_PATH
 
-## Create the wrldcovid_DHGen table
-echo "CREATE TABLE wrldcovid_DHComb (
-  Date DATE, 
-  Country_Region VARCHAR,
-  Province_State VARCHAR,
-  Lat NUMBER,
-  Long NUMBER,
-  Confirmed INTEGER,
-  Recovered INTEGER,
-  Deaths INTEGER
-);" | sqlite3 $DB_PATH
-
-## Create the wrldcovid_DHAgreg table
-echo "CREATE TABLE wrldcovid_DHAgreg (
-  Date DATE, 
-  Country VARCHAR,
-  Confirmed INTEGER,
-  Recovered INTEGER,
-  Deaths INTEGER
-);" | sqlite3 $DB_PATH
-
-## Create the wrldcovid_DHIncR table
-echo "CREATE TABLE wrldcovid_DHIncR (
-  Date DATE, 
-  Confirmed INTEGER,
-  Recovered INTEGER,
-  Deaths INTEGER,
-  Increase_rate NUMBER
-);" | sqlite3 $DB_PATH
-
 ## Create the wrldcovid_DHRef table
 echo "CREATE TABLE wrldcovid_DHRef (
   UID INTEGER,
@@ -60,8 +30,18 @@ echo "CREATE TABLE wrldcovid_DHRef (
   Population INTEGER
 );" | sqlite3 $DB_PATH
 
-## Create the wrldcovid_30days table
-echo "CREATE TABLE wrldcovid_30days (
+## Create the wrldcovid_Hist table
+echo "CREATE TABLE wrldcovid_Hist (
+  Date DATE, 
+  Country VARCHAR,
+  Province VARCHAR,
+  Cases INTEGER,
+  Recovered INTEGER,
+  Deaths INTEGER
+);" | sqlite3 $DB_PATH
+
+## Create the wrldcovid_br table
+echo "CREATE TABLE wrldcovid_br (
   Date DATE, 
   Country VARCHAR,
   Province VARCHAR,
