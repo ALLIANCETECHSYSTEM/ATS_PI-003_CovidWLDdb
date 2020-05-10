@@ -5,7 +5,7 @@
 # csvkit - sudo pip install csvkit
 
 ############## 
-# Setup new workspace
+# Setup new data workspace
 #DB_PATH=databases/sqlite/covid19WLDdb.sqlite3 ### Passed as ENV
 CSV_DIR=/tmp/covid19wld
 mkdir -p $CSV_DIR
