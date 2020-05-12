@@ -73,17 +73,6 @@ echo "CREATE TABLE wrldcovid_hist (
   Deaths INTEGER
 );" | sqlite3 $DB_PATH
 
-## Create the wrldcovid_br table
-echo "CREATE TABLE wrldcovid_br (
-  regiao VARCHAR,
-  estado VARCHAR,
-  data DATE, 
-  casosNovos INTEGER,
-  casosAcumulados INTEGER,
-  obitosNovos INTEGER,
-  obitosAcumulados INTEGER
-);" | sqlite3 $DB_PATH
-
 #####################
 # EXIT
 exit 0
