@@ -5,7 +5,7 @@
 # sqlite3 - sudo apt-get install sqlite3
 
 ############## 
-# Setup your workspace
+# Setup our workspace
 #DB_PATH=databases/sqlite/covid19WLDdb.sqlite3 ### Passed as ENV
 
 #################
