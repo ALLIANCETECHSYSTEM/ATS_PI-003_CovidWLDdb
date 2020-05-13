@@ -5,7 +5,7 @@
 # csvkit - sudo pip install csvkit
 
 ############## 
-# Setup new data workspace
+# Setup new data workspace | Alliance
 #DB_PATH=databases/sqlite/covid19WLDdb.sqlite3 ### Passed as ENV
 CSV_DIR=/tmp/covid19wld
 mkdir -p $CSV_DIR
@@ -18,7 +18,7 @@ curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-
       -o $CSV_DIR/covidwld-counties.csv
 curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw/export?format=csv&id=140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-m4IBYuttw&gid=1287373792' \
       -o $CSV_DIR/covidwld-countries.csv
-curl 'https://raw.githubusercontent.com/flavianogjc/covid_web_scraping/master/countries_data.csv' \
+curl 'https://raw.githubusercontent.com/flavianogjc/covid_19/master/countries_data.csv' \
       -o $CSV_DIR/covidwld-historical.csv
 
 #####################
