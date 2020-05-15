@@ -28,6 +28,10 @@ echo "CREATE TABLE wrldcovid_all (
   Deathsperonemillion INTEGER,
   Tests INTEGER,
   Testsperonemillion NUMBER,
+  Population INTEGER,
+  Activeperonemillion NUMBER,
+  Recoveredperonemillion NUMBER,
+  Criticalperonemillion NUMBER,
   Affectedcountries INTEGER
 );" | sqlite3 $DB_PATH
 
@@ -41,7 +45,15 @@ echo "CREATE TABLE wrldcovid_counties (
   Recovered INTEGER,
   Active INTEGER,
   Critical INTEGER,
+  Casesperonemillion NUMBER,
+  Deathsperonemillion NUMBER,
+  Tests INTEGER,
+  Testsperonemillion NUMBER,
+  Population INTEGER,
   Continent VARCHAR,
+  Activeperonemillion NUMBER,
+  Recoveredperonemillion NUMBER,
+  Criticalperonemillion NUMBER,
   Countries VARCHAR
 );" | sqlite3 $DB_PATH
 
@@ -60,7 +72,11 @@ echo "CREATE TABLE wrldcovid_countries (
   Deathsperonemillion INTEGER,
   Tests INTEGER,
   Testsperonemillion NUMBER,
-  Continent VARCHAR
+  Population INTEGER,
+  Continent VARCHAR,
+  Activeperonemillion NUMBER,
+  Recoveredperonemillion NUMBER,
+  Criticalperonemillion NUMBER
 );" | sqlite3 $DB_PATH
 
 ## Create the wrldcovid_hist table
