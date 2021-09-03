@@ -24,7 +24,7 @@ curl 'https://raw.githubusercontent.com/flavianogjc/covid_19/master/countries_da
 #####################
 # Insert the data
 
-## Insert the tables data
+## Insert the tables data insertion
 csvsql $CSV_DIR/covidwld-all.csv  \
     --db sqlite:///$DB_PATH --insert --no-create \
     --tables wrldcovid_all   
