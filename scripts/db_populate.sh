@@ -25,15 +25,15 @@ curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-
 # Insert the data
 
 ## Insert the tables data insertion
-#csvsql $CSV_DIR/covidwld-all.csv  \
-#    --db sqlite:///$DB_PATH --insert --no-create \
-#    --tables wrldcovid_all   
-#csvsql $CSV_DIR/covidwld-counties.csv  \
-#    --db sqlite:///$DB_PATH --insert --no-create \
-#    --tables wrldcovid_counties   
-#csvsql $CSV_DIR/covidwld-countries.csv  \
-#    --db sqlite:///$DB_PATH --insert --no-create \
-#    --tables wrldcovid_countries    
+csvsql $CSV_DIR/covidwld-all.csv  \
+    --db sqlite:///$DB_PATH --insert --no-create \
+    --tables wrldcovid_all   
+csvsql $CSV_DIR/covidwld-counties.csv  \
+    --db sqlite:///$DB_PATH --insert --no-create \
+    --tables wrldcovid_counties   
+csvsql $CSV_DIR/covidwld-countries.csv  \
+    --db sqlite:///$DB_PATH --insert --no-create \
+    --tables wrldcovid_countries    
 #csvsql $CSV_DIR/covidwld-historical.csv  \
 #    --db sqlite:///$DB_PATH --insert --no-create \
 #    --tables wrldcovid_hist
@@ -44,9 +44,9 @@ curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-
 #####################
 # Insert the data in SQLite
 
-sqlite3 databases/sqlite/covid19WLDdb2.sqlite3 -separator ',' '.import "$CSV_DIR"/covidwld-all.csv wrldcovid_all'
-sqlite3 databases/sqlite/covid19WLDdb2.sqlite3 -separator ',' '.import "$CSV_DIR"/covidwld-counties.csv wrldcovid_counties'
-sqlite3 databases/sqlite/covid19WLDdb2.sqlite3 -separator ',' '.import '$CSV_DIR'/covidwld-countries.csv wrldcovid_countries'
+#sqlite3 databases/sqlite/covid19WLDdb2.sqlite3 -separator ',' '.import "$CSV_DIR"/covidwld-all.csv wrldcovid_all'
+#sqlite3 databases/sqlite/covid19WLDdb2.sqlite3 -separator ',' '.import "$CSV_DIR"/covidwld-counties.csv wrldcovid_counties'
+#sqlite3 databases/sqlite/covid19WLDdb2.sqlite3 -separator ',' '.import '$CSV_DIR'/covidwld-countries.csv wrldcovid_countries'
 
 #####################
 # EXIT
