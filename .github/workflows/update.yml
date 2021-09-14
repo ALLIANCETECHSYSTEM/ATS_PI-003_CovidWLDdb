@@ -34,7 +34,6 @@ jobs:
     - name: Install csvkit
       run: |
         sudo pip install csvkit
-        csv.Sniffer().sniff(f.readline())
     # Runs commands using the runners shell
     - name: Run the db_build bash script
       run: |
