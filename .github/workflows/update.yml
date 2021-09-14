@@ -33,7 +33,7 @@ jobs:
       run: sudo apt-get install sqlite3
     - name: Install csvkit
       run: |
-        sudo pip install csvkit --snifflimit 0 -D ","
+        sudo pip install csvkit
     # Runs commands using the runners shell
     - name: Run the db_build bash script
       run: |
