@@ -53,6 +53,10 @@ sqlite3 <<EOF
 .save databases/sqlite/covid19WLDdb2.sqlite3
 EOF
 
+sqlite3  -separator "," -cmd ".import $CSV_DIR/covidwld-all.csv wrldcovid_all" databases/sqlite/covid19WLDdb2.sqlite3
+sqlite3  -separator "," -cmd ".import $CSV_DIR/covidwld-counties.csv wrldcovid_counties" databases/sqlite/covid19WLDdb2.sqlite3
+sqlite3  -separator "," -cmd ".import $CSV_DIR/covidwld-countries.csv wrldcovid_countries" databases/sqlite/covid19WLDdb2.sqlite3
+
 #####################
 # EXIT
 
