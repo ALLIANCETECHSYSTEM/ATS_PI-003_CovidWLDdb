@@ -40,4 +40,20 @@ csvsql $CSV_DIR/covidwld-countries.csv  \
 
 #####################
 # EXIT
+
+#####################
+# Insert the data
+
+#!/bin/bash
+sqlite3 <<EOF
+.mode csv
+.import $CSV_DIR/covidwld-all.csv wrldcovid_all
+.import $CSV_DIR/covidwld-counties.csv wrldcovid_counties
+.import $CSV_DIR/covidwld-countries.csv wrldcovid_countries
+.save databases/sqlite/covid19WLDdb2.sqlite3
+EOF
+
+#####################
+# EXIT
+
 exit 0
