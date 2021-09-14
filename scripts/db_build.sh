@@ -22,6 +22,7 @@ echo "CREATE TABLE wrldcovid_all (
   Deaths INTEGER,
   Todaydeaths INTEGER,
   Recovered INTEGER,
+  Todayrecovered INTEGER,
   Active INTEGER,
   Critical INTEGER,
   Casesperonemillion INTEGER,
@@ -29,6 +30,9 @@ echo "CREATE TABLE wrldcovid_all (
   Tests INTEGER,
   Testsperonemillion NUMBER,
   Population INTEGER,
+  Onecaseperpeople INTEGER,
+  Onedeathperpeople INTEGER,
+  Onetestperpeople INTEGER,
   Activeperonemillion NUMBER,
   Recoveredperonemillion NUMBER,
   Criticalperonemillion NUMBER,
@@ -43,6 +47,7 @@ echo "CREATE TABLE wrldcovid_counties (
   Deaths INTEGER,
   Todaydeaths INTEGER,
   Recovered INTEGER,
+  Todayrecovered INTEGER,
   Active INTEGER,
   Critical INTEGER,
   Casesperonemillion NUMBER,
@@ -66,6 +71,7 @@ echo "CREATE TABLE wrldcovid_countries (
   Deaths INTEGER,
   Todaydeaths INTEGER,
   Recovered INTEGER,
+  Todayrecovered INTEGER,
   Active INTEGER,
   Critical INTEGER,
   Casesperonemillion INTEGER,
@@ -74,9 +80,10 @@ echo "CREATE TABLE wrldcovid_countries (
   Testsperonemillion NUMBER,
   Population INTEGER,
   Continent VARCHAR,
-  Activeperonemillion NUMBER,
-  Recoveredperonemillion NUMBER,
-  Criticalperonemillion NUMBER
+  Onecaseperpeople INTEGER,
+  Onedeathperpeople INTEGER,
+  Onetestperpeople INTEGER,
+  Activeperonemillion NUMBER
 );" | sqlite3 $DB_PATH
 
 ## Create the wrldcovid_hist table
