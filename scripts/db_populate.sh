@@ -45,17 +45,9 @@ curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-
 # Insert the data
 
 #!/bin/bash
-sqlite3 <<EOF
-.mode csv
-.import $CSV_DIR/covidwld-all.csv wrldcovid_all
-.import $CSV_DIR/covidwld-counties.csv wrldcovid_counties
-.import $CSV_DIR/covidwld-countries.csv wrldcovid_countries
-.save databases/sqlite/covid19WLDdb2.sqlite3
-EOF
-
-sqlite3  -separator "," -cmd ".import $CSV_DIR/covidwld-all.csv wrldcovid_all" databases/sqlite/covid19WLDdb2.sqlite3
-sqlite3  -separator "," -cmd ".import $CSV_DIR/covidwld-counties.csv wrldcovid_counties" databases/sqlite/covid19WLDdb2.sqlite3
-sqlite3  -separator "," -cmd ".import $CSV_DIR/covidwld-countries.csv wrldcovid_countries" databases/sqlite/covid19WLDdb2.sqlite3
+sqlite3 -separator ',' databases/sqlite/covid19WLDdb2.sqlite3 ".import $CSV_DIR/covidwld-all.csv wrldcovid_all"
+sqlite3 -separator ',' databases/sqlite/covid19WLDdb2.sqlite3 ".import $CSV_DIR/covidwld-counties.csv wrldcovid_counties"
+sqlite3 -separator ',' databases/sqlite/covid19WLDdb2.sqlite3 ".import $CSV_DIR/covidwld-countries.csv wrldcovid_countries"
 
 #####################
 # EXIT
