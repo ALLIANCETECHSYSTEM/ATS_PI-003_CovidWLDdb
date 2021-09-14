@@ -42,14 +42,11 @@ curl 'https://docs.google.com/spreadsheets/d/140m-MGvRmfyku3rT0qwflfTyobm2MZSK3-
 # EXIT
 
 #####################
-# Insert the data
+# Insert the data in SQLite
 
-#!/bin/bash
 sqlite3 databases/sqlite/covid19WLDdb2.sqlite3 -separator ',' '.import $CSV_DIR/covidwld-all.csv wrldcovid_all'
 sqlite3 databases/sqlite/covid19WLDdb2.sqlite3 -separator ',' '.import $CSV_DIR/covidwld-counties.csv wrldcovid_counties'
 sqlite3 databases/sqlite/covid19WLDdb2.sqlite3 -separator ',' '.import $CSV_DIR/covidwld-countries.csv wrldcovid_countries'
-
-sqlite3 widget.db -separator ',' '.import /tmp/widgets_2017-03-15-14-36.csv users'
 
 #####################
 # EXIT
